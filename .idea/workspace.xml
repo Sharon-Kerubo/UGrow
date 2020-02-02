@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d309bc05-353c-49bb-af08-7281839307d9" name="Default Changelist" comment="" />
+    <list default="true" id="d309bc05-353c-49bb-af08-7281839307d9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/static/app/nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +20,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1X9OI2jRgOUK4QP6GxnLLB9IzkJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -24,6 +33,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../geodjango/geodjango" />
   </component>
   <component name="SvnConfiguration">
@@ -43,10 +53,10 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="120" y="151" width="424" height="491" key="FileChooserDialogImpl" timestamp="1580454834651">
+    <state x="120" y="151" width="424" height="491" key="FileChooserDialogImpl" timestamp="1580673276245">
       <screen x="37" y="27" width="1329" height="741" />
     </state>
-    <state x="120" y="151" width="424" height="491" key="FileChooserDialogImpl/37.27.1329.741@37.27.1329.741" timestamp="1580454834651" />
+    <state x="120" y="151" width="424" height="491" key="FileChooserDialogImpl/37.27.1329.741@37.27.1329.741" timestamp="1580673276245" />
     <state x="37" y="221" key="com.intellij.ide.util.TipDialog" timestamp="1580454775372">
       <screen x="37" y="27" width="1329" height="741" />
     </state>
