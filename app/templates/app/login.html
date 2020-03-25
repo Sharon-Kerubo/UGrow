@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>uGrow</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/login.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://use.fontawesome.com/f4042fae21.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="popup">
+              <div class="popup-content">
+                   <div class="popup-body">
+                        <div class="login-box">
+                            <img src="{% static 'app/images/close.png' %}" alt="user" class="close">
+                            <i class="fa fa-pagelines fa-4x sign"></i>
+                            <div class="textbox">
+                            <i class="fa fa-user icon" aria-hidden="true"></i>
+                            <input type="text" placeholder="Username" name="" value="">
+                        </div>
+                        <div class="textbox">
+                            <i class="fa fa-user icon" aria-hidden="true"></i>
+                            <input type="text" placeholder="Email" name="" value="">
+                        </div>
+                        <div class="textbox">
+                            <i class="fa fa-lock icon" aria-hidden="true"></i>
+                            <input type="text" placeholder="Password" name="" value="">
+                        </div>
+                        <div class="textbox">
+                            <i class="fa fa-lock icon" aria-hidden="true"></i>
+                            <input type="text" placeholder="Confirm Password" name="" value="">
+                        </div>
+                        <div>
+                        <input class="button" type="button" name="" value="Login">
+                        </div>
+                            <div class="forgot">
+                               <li class="forgot"> <a href="#">Forgot Password?</a></li>
+                            </div>
+                        </div>
+                 </div>
+              </div>
+          </div>
+<script>
+    document.getElementById("button").addEventListener("click", function(){
+        document.querySelector(".popup").style.display = "flex";
+    })
+    document.querySelector(".close").addEventListener("click", function(){
+        document.querySelector(".popup").style.display = "none";
+    })
+</script>
+</body>
+</html>

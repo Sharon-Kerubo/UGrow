@@ -5,47 +5,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>iPlant</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <title>uGrow</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/login.css' %}" />
+    <script src="https://use.fontawesome.com/f4042fae21.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <div class="wrapper">
-        <header>
+          <header>
             <nav>
-                <div class="menu-icon">
-                    <i class="fa fa-bars fa-2x"></i>
-                </div>
-                <div class="logo">
-                    LOGO
-                </div>
-                <div class="menu">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                         <li><a href="#">About</a></li>
-                         <li><a href="#">Blog</a></li>
-                         <li><a href="#">Contact</a></li>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li class="sub-menu"><a href="#">Explore</a>
+                        <ul>
+                            <li><a href="#">KISII</a></li>
+                            <li><a href="#">KISUMU</a></li>
+                            <li><a href="#">ELDORET</a></li>
+                            <li><a href="#">MERU</a></li>
+                            <li><a href="#">KABETE</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Crops</a></li>
+                    <li><a href="#">Ask an Expert</a></li>
+                    <ul class="nav-right">
+                        <li><a href="#" class="buttons" id="logn">Login</a></li>
+                        <li><a href="#" class="buttons" id="btn">Sign Up</a></li>
                     </ul>
-                </div>
+
+                </ul>
             </nav>
+            <div class="menu-toggle"><i class="fa fa-bars" onclick="ready()" aria-hidden="true"></i></div>
         </header>
-        <div class="content">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </div>
+<!--Sign up-->
+           <div class="popup-sign">
+              <div class="popup-content-sign">
+                   <div class="popup-body">
+                        <div class="login-box">
+                            <img src="{% static 'app/images/close.png' %}" alt="user" class="sign-close">
+                            <i class="fa fa-pagelines fa-4x sign"></i>
+                            <li class="forgot" style="color: #524532; font-size: 18px; text-align:center;">Sign Up to receive better farming practices on the selected crops</li>
+                            <div class="textbox">
+                            <i class="fa fa-user icon" aria-hidden="true"></i>
+                            <input type="text" placeholder="Username" name="" value="">
+                        </div>
+                        <div class="textbox">
+                            <i class="fa fa-user icon" aria-hidden="true"></i>
+                            <input type="text" placeholder="Email" name="" value="">
+                        </div>
+                        <div class="textbox">
+                            <i class="fa fa-lock icon" aria-hidden="true"></i>
+                            <input type="text" placeholder="Password" name="" value="">
+                        </div>
+                        <div class="textbox">
+                            <i class="fa fa-lock icon" aria-hidden="true"></i>
+                            <input type="text" placeholder="Confirm Password" name="" value="">
+                        </div>
+                        <div>
+                        <input class="button" type="submit" name value="submit" id="submit" class="button">
+                        </div>
+                            <div class="forgot">
+                               <li>Already have an account?<a href="#" style="color:blue;">Login</a></li>
+                            </div>
+                        </div>
+                 </div>
+              </div>
+          </div>
+<!--  Login  -->
+          <div class="popup">
+              <div class="popup-content">
+                   <div class="popup-body">
+                        <div class="login-box">
+                            <img src="{% static 'app/images/close.png' %}" alt="user" class="close">
+                            <i class="fa fa-pagelines fa-4x sign"></i>
+                            <li class="forgot" style="color: #524532; font-size: 18px; text-align:center;">Login to rate our services</li>
+                            <div class="textbox">
+                            <i class="fa fa-user icon" aria-hidden="true"></i>
+                            <input type="text" placeholder="Username" name="" value="">
+                        </div>
+                        <div class="textbox">
+                            <i class="fa fa-lock icon" aria-hidden="true"></i>
+                            <input type="text" placeholder="Password" name="" value="">
+                        </div>
+                         <div class="forgot">
+                               <li><a href="#" style="color:blue;">Forgot Password?</a></li>
+                            </div>
+                        <div>
+                        <input class="button" type="submit" name value="Submit" id="submit" class="button">
+                        </div>
+                        </div>
+                 </div>
+              </div>
+          </div>
+        <!-- Fist section-->
+        <section class="first-content">
+            <div class="inner">
+                 <div class=" logo">
+                    <i class="fa fa-pagelines fa-5x icon" aria-hidden="true"></i>
+                    <h1>Let's Grow</h1>
+                    <p>WHAT GROWS WHERE & WHEN?</p>
+                 </div>
+                <h1> Sign up to know which crops will do well in your farm!</h1>
+                    <a href="#" class="btn" id="btn">SIGN UP NOW </a>
+            </div>
+        <!--Second section-->
+        </section>
+        <section class="about-content">
+            <div class="second">
+                <div class="about">
+                     <h3>What is Let's Grow</h3>
+                     <h4>Just with a click, get to know the crops that are likely to do well in your area.</h4>
+                </div>
+                 <a href="#" class="btn">SIGN UP NOW > </a>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="inner">
+                <div class="foot">
+                    <div class="logo-foot">
+                        <p class="tagline">WHAT SHOULD I PLANT?</p>
+                    </div>
+                    <ul class="list-inline list-menu ">
+                        <li> <a href="#">Explore</a> </li>
+                        <li> <a href="#">Ask an Expert</a> </li>
+                    </ul>
+                    <ul class="list-inline list-icon">
+                        <li>
+                           <a href="#">
+                               <i class="icon-facebook"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                               <i class="fa fa-facebook-f"></i>
+                           </a>
+                        </li>
+                    </ul>
+                    <p class="copy">&copy; Copyright 2020. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
     </div>
-    </div>
-    <script src="{% static 'app/nav.js' %}"></script>
+
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>>
+        <script src="{% static 'app/nav.js' %}"></script>
+          <script>
+            document.getElementById("logn").addEventListener("click", function(){
+                document.querySelector(".popup").style.display = "flex";
+            })
+            document.querySelector(".close").addEventListener("click", function(){
+                document.querySelector(".popup").style.display = "none";
+            })
+</script>
+ <script>
+            document.getElementById("btn").addEventListener("click", function(){
+                document.querySelector(".popup-sign").style.display = "flex";
+            })
+            document.querySelector(".sign-close").addEventListener("click", function(){
+                document.querySelector(".popup-sign").style.display = "none";
+            })
+</script>
 </body>
 </html>

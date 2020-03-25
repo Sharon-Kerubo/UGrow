@@ -1,12 +1,14 @@
 from django.shortcuts import render, get_object_or_404
+from django.views import generic
 from .models import crops
 
-def index(request):
-    all_crops = crops.objects.all()
-    return render(request, 'app/index.html', {'all_crops': all_crops})
+class IndexView(generic.ListView):
+    model = crops
+    template_name = 'app/index.html'
 
-
-
-
-
-
+class LocationView(generic.ListView):
+    model = crops
+    template_name = 'app/location.html'
+class LoginView(generic.ListView):
+    model = crops
+    template_name = 'app/login.html'
