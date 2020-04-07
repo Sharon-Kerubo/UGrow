@@ -10,15 +10,28 @@ body {
     padding: 0;
 }
 .buttons{
-    color: var(--light);
-    padding: 0.6rem 1.3rem;
+   color: var(--light);
     text-decoration: none;
     border: 1px solid #fff;
-    font-weight: bold;
     margin-left: 8px;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    background-image: none;
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    height: 36px;
+    user-select: none;
 }
 .nav-right{
     float: right;
+    margin-left: 425px;
 }
 header{
     position:absolute;
@@ -53,6 +66,7 @@ header nav ul li a:active{
     color: #fff;
     background: #D3D3D3;
 }
+
 .menu-toggle{
     color: #fff;
     float: right;
@@ -102,7 +116,13 @@ header nav ul li a:active{
     line-height: 50px;
     color: #fff;
     right: 5px;
-}
+    }
+    .nav-right{
+        display: block !important
+        padding-bottom: 15px;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
 }
 @media (min-width: 991px){
     header nav ul li.sub-menu:before{
@@ -112,10 +132,6 @@ header nav ul li a:active{
     line-height: 15px;
     color: #fff;
     right: 5px;
-}
-.nav-right{
-    float: right;
-    margin-left: 425px;
 }
 header nav ul{
     margin: 0;

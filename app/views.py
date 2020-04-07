@@ -12,3 +12,6 @@ class LocationView(generic.ListView):
 class LoginView(generic.ListView):
     model = crops
     template_name = 'app/login.html'
+class KisiiView(generic.ListView):
+    model = crops
+    template_name = 'app/kisii.html'

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>uGrow</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
+    <script src="https://use.fontawesome.com/f4042fae21.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+
+</head>
+<body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li class="sub-menu"><a href="#">Explore</a>
+                        <ul>
+                            <li><a href="#">KISII</a></li>
+                            <li><a href="#">KISUMU</a></li>
+                            <li><a href="#">ELDORET</a></li>
+                            <li><a href="#">MERU</a></li>
+                            <li><a href="#">KABETE</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Crops</a></li>
+                    <li><a href="#">Ask an Expert</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle"><i class="fa fa-bars" onclick="ready()" aria-hidden="true"></i></div>
+        </header>
+       <div class="wrapper">
+            <div class="filters">
+                <form class="form">
+                    <p class="top name">KISII</p>
+                    <div class="form-group">
+                        <label>WARD</label>
+                        <select class="dropdown wards" type="text" name value multiple="multiple" tabindex="-1" style="display: none;"></select>
+                        <div class="select-items dropdown wards multi remove">
+                            <div class="select-input">
+                                <input type="text" autocomplete="off" tabindex style="width: 4px; opacity: 1; position: relative; left: 0px;">
+                            </div>
+                            <div class="select-drop multi dropdown wards remove" style="display: block; visibility: visible; width: 256px; top: 34px; left: 0px;">
+                                <div class="select-drop-content">
+                                    <div data-value="2" data-selectable="" class="option">Township</div>
+                                    <div data-value="3" data-selectable="" class="option">Kamenu</div>
+                                    <div data-value="4" data-selectable="" class="option">Hospital</div>
+                                    <div data-value="5" data-selectable="" class="option">Gatuanyaga</div>
+                                    <div data-value="6" data-selectable="" class="option">Gituamba</div>
+                                    <div data-value="6" data-selectable="" class="option">Githobokoni</div>
+                                    <div data-value="6" data-selectable="" class="option">Chania</div>
+                                    <div data-value="6" data-selectable="" class="option">Mang'u</div>
+                                    <div data-value="6" data-selectable="" class="option">Kiamwangi</div>
+                                    <div data-value="6" data-selectable="" class="option">Arugula</div>
+                                    <div data-value="6" data-selectable="" class="option">Arugula</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+           </div>
+           <div class="map">
+                <div class="map-content">
+                     <div id="mapid"></div>
+                </div>
+          </div>
+       </div>
+        <script>
+            var mymap = L.map('mapid').setView([1.1748, 36.8304], 13);
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWlzc2dlZWsiLCJhIjoiY2s1cWlyODc4MDJyZTNlbWxnbHp4dnVjYSJ9.b5iJpCc0ypglLOvc5DDj1A', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+
+}).addTo(mymap);
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>>
+        <script src="{% static 'app/nav.js' %}"></script>
+</body>
+</html>

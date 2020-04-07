@@ -20,11 +20,11 @@
                     <li><a href="#" class="active">Home</a></li>
                     <li class="sub-menu"><a href="#">Explore</a>
                         <ul>
-                            <li><a href="#">KISII</a></li>
-                            <li><a href="#">KISUMU</a></li>
-                            <li><a href="#">ELDORET</a></li>
-                            <li><a href="#">MERU</a></li>
-                            <li><a href="#">KABETE</a></li>
+                            <li><a href="{% url 'app:kisii' %}">KISII</a></li>
+                            <li><a href="{% url 'app:kisumu' %}">KISUMU</a></li>
+                            <li><a href="{% url 'app:eldoret' %}">ELDORET</a></li>
+                            <li><a href="{% url 'app:meru' %}">MERU</a></li>
+                            <li><a href="{% url 'app:kiambu' %}">KIAMBU</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Crops</a></li>
@@ -46,25 +46,28 @@
                             <img src="{% static 'app/images/close.png' %}" alt="user" class="sign-close">
                             <i class="fa fa-pagelines fa-4x sign"></i>
                             <li class="forgot" style="color: #524532; font-size: 18px; text-align:center;">Sign Up to receive better farming practices on the selected crops</li>
-                            <div class="textbox">
-                            <i class="fa fa-user icon" aria-hidden="true"></i>
-                            <input type="text" placeholder="Username" name="" value="">
-                        </div>
-                        <div class="textbox">
-                            <i class="fa fa-user icon" aria-hidden="true"></i>
-                            <input type="text" placeholder="Email" name="" value="">
-                        </div>
-                        <div class="textbox">
-                            <i class="fa fa-lock icon" aria-hidden="true"></i>
-                            <input type="text" placeholder="Password" name="" value="">
-                        </div>
-                        <div class="textbox">
-                            <i class="fa fa-lock icon" aria-hidden="true"></i>
-                            <input type="text" placeholder="Confirm Password" name="" value="">
-                        </div>
-                        <div>
-                        <input class="button" type="submit" name value="submit" id="submit" class="button">
-                        </div>
+                            <form name="frmuser" action="/register" method="post" onsubmit="return checkform(this);">
+                               <div class="textbox">
+                                    <i class="fa fa-user icon" aria-hidden="true"></i>
+                                    <input type="text" placeholder="Username" name="" value="">
+                                </div>
+                                <div class="textbox">
+                                    <i class="fa fa-user icon" aria-hidden="true"></i>
+                                    <input type="text" placeholder="Email" name="" value="">
+                                </div>
+                                <div class="textbox">
+                                    <i class="fa fa-lock icon" aria-hidden="true"></i>
+                                    <input type="text" placeholder="Password" name="" value="">
+                                </div>
+                                <div class="textbox">
+                                    <i class="fa fa-lock icon" aria-hidden="true"></i>
+                                    <input type="text" placeholder="Confirm Password" name="" value="">
+                                </div>
+                                <div>
+                                <input class="button" type="submit" name value="submit" id="submit" class="button">
+                                </div>
+                           </form>
+
                             <div class="forgot">
                                <li>Already have an account?<a href="#" style="color:blue;">Login</a></li>
                             </div>
@@ -115,7 +118,7 @@
             <div class="second">
                 <div class="about">
                      <h3>What is Let's Grow</h3>
-                     <h4>Just with a click, get to know the crops that are likely to do well in your area.</h4>
+                     <p>Just with a click, get to know the crops that are likely to do well in your area.</p>
                 </div>
                  <a href="#" class="btn">SIGN UP NOW > </a>
             </div>
@@ -148,23 +151,46 @@
         </footer>
     </div>
 
-      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <script src="{% static 'app/nav.js' %}"></script>
-          <script>
-            document.getElementById("logn").addEventListener("click", function(){
-                document.querySelector(".popup").style.display = "flex";
-            })
-            document.querySelector(".close").addEventListener("click", function(){
-                document.querySelector(".popup").style.display = "none";
-            })
-</script>
- <script>
-            document.getElementById("btn").addEventListener("click", function(){
-                document.querySelector(".popup-sign").style.display = "flex";
-            })
-            document.querySelector(".sign-close").addEventListener("click", function(){
-                document.querySelector(".popup-sign").style.display = "none";
-            })
-</script>
+        <script language="JavaScript" type="text/javascript">
+            function checkform (form){
+                function isEmpty (fixwhat, s_Called){
+                    if (fixwhat==""){
+                        alert("Please enter " + s_called);
+                        return true;
+                    }else{
+                    return false;
+                    }
+                }
+                function charCheck(fixwhat){
+                    var validchars = '@-_.0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                    if(isValid(fixwhat,validchars)){
+                        return true;
+                    }else{
+                    alert("Please use only letters or numbers in this field");
+                    return false;
+                    }
+                }
+                 function isValid(string,validchars){
+                    for (var i=0; i< string.length; i++){
+                        if (validchars.indexOf(string.charAt(i)) === -1){
+                        return false;
+                        }
+                    }
+                    return true;
+                 }
+                 if (is_empty (form.t_username.value,"your username")){form.t_username.focus();  return false;}
+                 if (is_empty (form.t_email.value,"your email address")){form.t_email.focus();  return false;}
+                 if (is_empty (form.t_password.value,"your password")) { form.t_password.focus();  return false;}
+
+                 if (charCheck(form.t_username.value)===false) {form.t_username.focus(); return false;}
+                 if (charCheck(form.t_email.value)===false) {form.t_email.focus(); return false;}
+                 if (charCheck(form.t_password.value)===false) {form.t_password.focus(); return false;}
+
+                 return true;
+            }
+        </script>
+
 </body>
 </html>
