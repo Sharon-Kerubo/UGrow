@@ -66,12 +66,12 @@ WSGI_APPLICATION = 'mapping_crops.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'letsgrow',
+        'NAME': 'agricom',
         'USER': 'postgres',
         'HOST': 'localhost',
         'PASSWORD': 'postgres',
         'PORT': '5432',
-    },
+    }
 }
 
 

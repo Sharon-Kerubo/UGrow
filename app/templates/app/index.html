@@ -30,77 +30,14 @@
                     <li><a href="#">Crops</a></li>
                     <li><a href="#">Ask an Expert</a></li>
                     <ul class="nav-right">
-                        <li><a href="#" class="buttons" id="logn">Login</a></li>
-                        <li><a href="#" class="buttons" id="btn">Sign Up</a></li>
+                        <li><a href="{% url 'app:login' %}" class="buttons" id="logn">Login</a></li>
+                        <li><a href="{% url 'app:signup' %}" class="buttons" id="btn">Sign Up</a></li>
                     </ul>
 
                 </ul>
             </nav>
             <div class="menu-toggle"><i class="fa fa-bars" onclick="ready()" aria-hidden="true"></i></div>
         </header>
-<!--Sign up-->
-           <div class="popup-sign">
-              <div class="popup-content-sign">
-                   <div class="popup-body">
-                        <div class="login-box">
-                            <img src="{% static 'app/images/close.png' %}" alt="user" class="sign-close">
-                            <i class="fa fa-pagelines fa-4x sign"></i>
-                            <li class="forgot" style="color: #524532; font-size: 18px; text-align:center;">Sign Up to receive better farming practices on the selected crops</li>
-                            <form name="frmuser" action="/register" method="post" onsubmit="return checkform(this);">
-                               <div class="textbox">
-                                    <i class="fa fa-user icon" aria-hidden="true"></i>
-                                    <input type="text" placeholder="Username" name="" value="">
-                                </div>
-                                <div class="textbox">
-                                    <i class="fa fa-user icon" aria-hidden="true"></i>
-                                    <input type="text" placeholder="Email" name="" value="">
-                                </div>
-                                <div class="textbox">
-                                    <i class="fa fa-lock icon" aria-hidden="true"></i>
-                                    <input type="text" placeholder="Password" name="" value="">
-                                </div>
-                                <div class="textbox">
-                                    <i class="fa fa-lock icon" aria-hidden="true"></i>
-                                    <input type="text" placeholder="Confirm Password" name="" value="">
-                                </div>
-                                <div>
-                                <input class="button" type="submit" name value="submit" id="submit" class="button">
-                                </div>
-                           </form>
-
-                            <div class="forgot">
-                               <li>Already have an account?<a href="#" style="color:blue;">Login</a></li>
-                            </div>
-                        </div>
-                 </div>
-              </div>
-          </div>
-<!--  Login  -->
-          <div class="popup">
-              <div class="popup-content">
-                   <div class="popup-body">
-                        <div class="login-box">
-                            <img src="{% static 'app/images/close.png' %}" alt="user" class="close">
-                            <i class="fa fa-pagelines fa-4x sign"></i>
-                            <li class="forgot" style="color: #524532; font-size: 18px; text-align:center;">Login to rate our services</li>
-                            <div class="textbox">
-                            <i class="fa fa-user icon" aria-hidden="true"></i>
-                            <input type="text" placeholder="Username" name="" value="">
-                        </div>
-                        <div class="textbox">
-                            <i class="fa fa-lock icon" aria-hidden="true"></i>
-                            <input type="text" placeholder="Password" name="" value="">
-                        </div>
-                         <div class="forgot">
-                               <li><a href="#" style="color:blue;">Forgot Password?</a></li>
-                            </div>
-                        <div>
-                        <input class="button" type="submit" name value="Submit" id="submit" class="button">
-                        </div>
-                        </div>
-                 </div>
-              </div>
-          </div>
         <!-- Fist section-->
         <section class="first-content">
             <div class="inner">
@@ -153,44 +90,5 @@
 
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <script src="{% static 'app/nav.js' %}"></script>
-        <script language="JavaScript" type="text/javascript">
-            function checkform (form){
-                function isEmpty (fixwhat, s_Called){
-                    if (fixwhat==""){
-                        alert("Please enter " + s_called);
-                        return true;
-                    }else{
-                    return false;
-                    }
-                }
-                function charCheck(fixwhat){
-                    var validchars = '@-_.0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                    if(isValid(fixwhat,validchars)){
-                        return true;
-                    }else{
-                    alert("Please use only letters or numbers in this field");
-                    return false;
-                    }
-                }
-                 function isValid(string,validchars){
-                    for (var i=0; i< string.length; i++){
-                        if (validchars.indexOf(string.charAt(i)) === -1){
-                        return false;
-                        }
-                    }
-                    return true;
-                 }
-                 if (is_empty (form.t_username.value,"your username")){form.t_username.focus();  return false;}
-                 if (is_empty (form.t_email.value,"your email address")){form.t_email.focus();  return false;}
-                 if (is_empty (form.t_password.value,"your password")) { form.t_password.focus();  return false;}
-
-                 if (charCheck(form.t_username.value)===false) {form.t_username.focus(); return false;}
-                 if (charCheck(form.t_email.value)===false) {form.t_email.focus(); return false;}
-                 if (charCheck(form.t_password.value)===false) {form.t_password.focus(); return false;}
-
-                 return true;
-            }
-        </script>
-
 </body>
 </html>

@@ -15,45 +15,32 @@
 </head>
 <body>
 
-    <div class="popup">
+   <div class="popup">
               <div class="popup-content">
                    <div class="popup-body">
                         <div class="login-box">
                             <img src="{% static 'app/images/close.png' %}" alt="user" class="close">
                             <i class="fa fa-pagelines fa-4x sign"></i>
+                            <li class="forgot" style="color: #524532; font-size: 18px; text-align:center;">Login to rate our services</li>
                             <div class="textbox">
                             <i class="fa fa-user icon" aria-hidden="true"></i>
                             <input type="text" placeholder="Username" name="" value="">
                         </div>
                         <div class="textbox">
-                            <i class="fa fa-user icon" aria-hidden="true"></i>
-                            <input type="text" placeholder="Email" name="" value="">
-                        </div>
-                        <div class="textbox">
                             <i class="fa fa-lock icon" aria-hidden="true"></i>
                             <input type="text" placeholder="Password" name="" value="">
                         </div>
-                        <div class="textbox">
-                            <i class="fa fa-lock icon" aria-hidden="true"></i>
-                            <input type="text" placeholder="Confirm Password" name="" value="">
-                        </div>
-                        <div>
-                        <input class="button" type="button" name="" value="Login">
-                        </div>
-                            <div class="forgot">
-                               <li class="forgot"> <a href="#">Forgot Password?</a></li>
+                         <div class="forgot">
+                               <li><a href="#" style="color:blue;">Forgot Password?</a></li>
                             </div>
+                        <div>
+                        <input class="button" type="submit" name value="Submit" id="submit" class="button">
+                        </div>
                         </div>
                  </div>
               </div>
           </div>
-<script>
-    document.getElementById("button").addEventListener("click", function(){
-        document.querySelector(".popup").style.display = "flex";
-    })
-    document.querySelector(".close").addEventListener("click", function(){
-        document.querySelector(".popup").style.display = "none";
-    })
-</script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="{% static 'app/nav.js' %}"></script>
 </body>
 </html>
