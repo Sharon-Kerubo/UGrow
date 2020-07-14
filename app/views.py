@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views import generic
-from .models import crops, signup
+from django.core.serializers import serialize
+from django.http import HttpResponse
+from .models import Counties, Soils, SoilPH
 
 def index(request):
     return render(request, 'app/index.html')
@@ -18,3 +19,12 @@ def signup(request):
     return render(request, 'app/signup.html')
 def login(request):
     return render(request, 'app/login.html')
+def county_datasets(request):
+    counties = serialize('geojson', Counties.objects.all())
+    return HttpResponse(counties, content_type='json')
+def soils_datasets(request):
+    soils = serialize('geojson', Soils.objects.all())
+    return HttpResponse(soils, content_type='json')
+def soilph_datasets(request):
+    soilph = serialize('geojson', SoilPH.objects.all())
+    return HttpResponse(soilph, content_type='json')

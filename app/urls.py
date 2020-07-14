@@ -1,15 +1,18 @@
 from django.urls import path
-from .import views, models
+from .import views
 
 app_name = 'app'
 
 urlpatterns = [
-     path('', views.index),
-     path('explore/kisii/', views.kisii),
-     path('explore/kisumu/', views.kisumu),
-     path('explore/eldoret/', views.eldoret),
-     path('explore/meru/', views.meru),
-     path('explore/kiambu/', views.kiambu),
-     path('signup/', views.signup),
-     path('login/', views.login),
+     path('', views.index, name='index'),
+     path('explore/kisii/', views.kisii, name='kisii'),
+     path('explore/kisumu/', views.kisumu, name='kisumu'),
+     path('explore/eldoret/', views.eldoret, name='eldoret'),
+     path('explore/meru/', views.meru, name='meru'),
+     path('explore/kiambu/', views.kiambu, name='kiambu'),
+     path('signup/', views.signup, name='signup'),
+     path('login/', views.login, name='login'),
+     path('county_data/', views.county_datasets, name='county'),
+     path('soils_data/', views.soils_datasets, name='soils'),
+     path('soilph_data/', views.soilph_datasets, name='soilph'),
 ]

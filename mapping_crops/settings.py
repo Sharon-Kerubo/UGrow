@@ -19,6 +19,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'leaflet',
     'app.apps.AppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -27,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'six',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +68,7 @@ WSGI_APPLICATION = 'mapping_crops.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'agricom',
+        'NAME': 'crops',
         'USER': 'postgres',
         'HOST': 'localhost',
         'PASSWORD': 'postgres',
@@ -112,3 +114,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,'static'),
+)
+
+LEAFLET_CONFIG = {
+    'SPATIAL_EXTENT': (-180, -90, 180, 90),
+    'DEAFULT_CENTER': (-.023, 36.87),
+    'DEFAULT_ZOOM': 5,
+    'MAX_ZOOM': 28,
+    'MIN_ZOOM': 13,
+    'SCALE': 'both',
+
+}
