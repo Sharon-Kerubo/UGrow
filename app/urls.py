@@ -15,4 +15,5 @@ urlpatterns = [
      path('county_data/', views.county_datasets, name='county'),
      path('soils_data/', views.soils_datasets, name='soils'),
      path('soilph_data/', views.soilph_datasets, name='soilph'),
+     path('crop_data/', views.crop_datasets, name='crop'),
 ]

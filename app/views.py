@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.serializers import serialize
 from django.http import HttpResponse
-from .models import Counties, Soils, SoilPH
+from .models import Counties, Soils, SoilPH, crop
 
 def index(request):
     return render(request, 'app/index.html')
@@ -28,3 +28,6 @@ def soils_datasets(request):
 def soilph_datasets(request):
     soilph = serialize('geojson', SoilPH.objects.all())
     return HttpResponse(soilph, content_type='json')
+def crop_datasets(request):
+    crops = serialize('geojson', crop.objects.all())
+    return HttpResponse(crops, content_type='json')

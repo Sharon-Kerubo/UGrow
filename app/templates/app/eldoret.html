@@ -2,21 +2,33 @@
 <html lang="en">
 <head>
     {% load static %}
+    {% load leaflet_tags %}
+    {% leaflet_js %}
+    {% leaflet_css %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>uGrow</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
-    <script src="https://use.fontawesome.com/f4042fae21.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'leaflet.css' %}"/>
+    <script type="text/javascript" src="https://use.fontawesome.com/f4042fae21.js"></script>
+    <script src="{% static 'leaflet-src.js' %}"></script>
+    <script src="{% static 'dist/leaflet.ajax.js' %}"></script>
+    <script src="{% static 'spin.js' %}"></script>
+    <script src="{% static 'leaflet.spin.js' %}"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"-->
+<!--   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="-->
+<!--   crossorigin=""/>-->
+<!--    &lt;!&ndash; Make sure you put this AFTER Leaflet's CSS &ndash;&gt;-->
+<!-- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"-->
+<!--   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="-->
+<!--   crossorigin="">-->
+<!--    </script>-->
+
 
 </head>
 <body>
@@ -26,15 +38,20 @@
                     <li><a href="#" class="active">Home</a></li>
                     <li class="sub-menu"><a href="#">Explore</a>
                         <ul>
-                            <li><a href="#">KISII</a></li>
-                            <li><a href="#">KISUMU</a></li>
-                            <li><a href="#">ELDORET</a></li>
-                            <li><a href="#">MERU</a></li>
-                            <li><a href="#">KABETE</a></li>
+                            <li><a href="{% url 'app:kisii' %}">KISII</a></li>
+                            <li><a href="{% url 'app:kisumu' %}">KISUMU</a></li>
+                            <li><a href="{% url 'app:eldoret' %}">ELDORET</a></li>
+                            <li><a href="{% url 'app:meru' %}">MERU</a></li>
+                            <li><a href="{% url 'app:kiambu' %}">KIAMBU</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Crops</a></li>
                     <li><a href="#">Ask an Expert</a></li>
+                    <ul class="nav-right">
+                        <li><a href="{% url 'app:login' %}" class="buttons" id="logn">Login</a></li>
+                        <li><a href="{% url 'app:signup' %}" class="buttons" id="btn">Sign Up</a></li>
+                    </ul>
+
                 </ul>
             </nav>
             <div class="menu-toggle"><i class="fa fa-bars" onclick="ready()" aria-hidden="true"></i></div>
@@ -44,7 +61,7 @@
                 <form class="form">
                     <p class="top name">ELDORET</p>
                     <div class="form-group">
-                        <label>WARD</label>
+                        <label>CROPS IN YOUR AREA</label>
                         <select class="dropdown wards" type="text" name value multiple="multiple" tabindex="-1" style="display: none;"></select>
                         <div class="select-items dropdown wards multi remove">
                             <div class="select-input">
@@ -52,17 +69,28 @@
                             </div>
                             <div class="select-drop multi dropdown wards remove" style="display: block; visibility: visible; width: 256px; top: 34px; left: 0px;">
                                 <div class="select-drop-content">
-                                    <div data-value="2" data-selectable="" class="option">Township</div>
-                                    <div data-value="3" data-selectable="" class="option">Kamenu</div>
-                                    <div data-value="4" data-selectable="" class="option">Hospital</div>
-                                    <div data-value="5" data-selectable="" class="option">Gatuanyaga</div>
-                                    <div data-value="6" data-selectable="" class="option">Gituamba</div>
-                                    <div data-value="6" data-selectable="" class="option">Githobokoni</div>
-                                    <div data-value="6" data-selectable="" class="option">Chania</div>
-                                    <div data-value="6" data-selectable="" class="option">Mang'u</div>
-                                    <div data-value="6" data-selectable="" class="option">Kiamwangi</div>
-                                    <div data-value="6" data-selectable="" class="option">Arugula</div>
-                                    <div data-value="6" data-selectable="" class="option">Arugula</div>
+                                    <div data-value="2" data-selectable="" class="option">Maize</div>
+                                    <div data-value="3" data-selectable="" class="option">Sugarcane</div>
+                                    <div data-value="4" data-selectable="" class="option">Bananas</div>
+                                    <div data-value="5" data-selectable="" class="option">Cassavas</div>
+                                    <div data-value="6" data-selectable="" class="option">Sorghum</div>
+                                    <div data-value="7" data-selectable="" class="option">Finger Millet</div>
+                                    <div data-value="8" data-selectable="" class="option">Potatoes</div>
+                                    <div data-value="9" data-selectable="" class="option">Pineapple</div>
+                                    <div data-value="10" data-selectable="" class="option">Rice</div>
+                                    <div data-value="11" data-selectable="" class="option">Sisal</div>
+                                    <div data-value="12" data-selectable="" class="option">Coffee</div>
+                                    <div data-value="13" data-selectable="" class="option">Flowers</div>
+                                    <div data-value="14" data-selectable="" class="option">Mangoes</div>
+                                    <div data-value="15" data-selectable="" class="option">Onions</div>
+                                    <div data-value="16" data-selectable="" class="option">Oranges</div>
+                                    <div data-value="17" data-selectable="" class="option">Passion Fruits</div>
+                                    <div data-value="18" data-selectable="" class="option">Pineapple</div>
+                                    <div data-value="19" data-selectable="" class="option">Tangerine</div>
+                                    <div data-value="20" data-selectable="" class="option">Tea</div>
+                                    <div data-value="21" data-selectable="" class="option">Tomatoes</div>
+                                    <div data-value="22" data-selectable="" class="option">Water melon</div>
+                                    <div data-value="23" data-selectable="" class="option">Wheat</div>
                                 </div>
                             </div>
                         </div>
@@ -76,17 +104,28 @@
           </div>
        </div>
         <script>
-            var mymap = L.map('mapid').setView([1.1748, 36.8304], 13);
-            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWlzc2dlZWsiLCJhIjoiY2s1cWlyODc4MDJyZTNlbWxnbHp4dnVjYSJ9.b5iJpCc0ypglLOvc5DDj1A', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
+            var mymap = L.map('mapid').setView([0.515533, 35.269552], 15);
+                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWlzc2dlZWsiLCJhIjoiY2s1cWlyODc4MDJyZTNlbWxnbHp4dnVjYSJ9.b5iJpCc0ypglLOvc5DDj1A', {
+                         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 12,
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+            }).addTo(mymap);
 
-}).addTo(mymap);
+
+            function popUp(f,l){
+                var out = [];
+                if (f.properties){
+                    for(key in f.properties){
+                        out.push(key+": "+f.properties[key]);
+                    }
+                    l.bindPopup(out.join("<br />"));
+                }
+            }
+            var datasets = new L.GeoJSON.AJAX(["{% url 'app:crop' %}"],{onEachFeature:popUp}).addTo(mymap)
+
         </script>
-
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>>
         <script src="{% static 'app/nav.js' %}"></script>
 </body>

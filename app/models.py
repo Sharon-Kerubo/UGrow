@@ -110,3 +110,12 @@ class crops(models.Model):
     temperature = models.CharField(max_length=254, null=True)
     humidity = models.CharField(max_length=254, null=True)
     drainage = models.CharField(max_length=254, null=True)
+
+class crop(models.Model):
+    crops = models.CharField(max_length=254, null=True)
+    main_crop = models.CharField(max_length=254, null=True)
+    other_crop = models.CharField(max_length=254, null=True)
+    county_nam = models.CharField(max_length=254, null=True)
+    watering = models.CharField(max_length=254, null=True)
+    area_km2 = models.FloatField()
+    geom = models.MultiPolygonField(srid=4326)
